@@ -9,12 +9,12 @@ export enum roleCode {
 })
 export class UserEnity {
     @PrimaryGeneratedColumn("uuid")
-    id : Number
+    id : String
 
     @Column({
         length : 50
     })
-    firsName : String
+    firstName : String
 
     @Column({
         length : 50

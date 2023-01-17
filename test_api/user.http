@@ -1,0 +1,25 @@
+
+POST http://localhost:3000/user/create
+Content-Type: application/json
+
+{
+    "firstName"  : "Dang",
+    "lastName"  : "Hoang"
+}
+
+###
+PUT http://localhost:3000/user/update/885c973c-d382-4da5-b860-6852de0717a2
+Content-Type: application/json
+
+{
+    "firstName"  : "Dang",
+    "lastName"  : "Minh"
+}
+###
+GET http://localhost:3000/useremail=minhhieu006@gmail.com&password=123456
+
+###
+GET http://localhost:3000/user/885c973c-d382-4da5-b860-6852de0717a2
+
+###
+DELETE  http://localhost:3000/user/885c973c-d382-4da5-b860-6852de0717a2

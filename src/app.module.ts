@@ -16,6 +16,7 @@ import { UserModule } from './user/user.module';
         database: 'building_manager',
         entities: [],
         synchronize: true,
+        autoLoadEntities: true
     }),
     UserModule
   ],
