@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity } from "./../common/mysql/base.entity";
 export enum roleCode {
     ADMIN = 'admin',
     USER  = 'user'
@@ -7,22 +8,20 @@ export enum roleCode {
 @Entity({
     name : 'user'
 })
-export class UserEnity {
-    @PrimaryGeneratedColumn("uuid")
-    id : String
+export class UserEnity extends BaseEntity {
+    
+    @Column({
+        length : 50
+    })
+    firstName : string
 
     @Column({
         length : 50
     })
-    firstName : String
-
-    @Column({
-        length : 50
-    })
-    lastName : String
+    lastName : string
 
     @Column({ default: true })
-    isActive  : Boolean
+    isActive  : boolean
 
     @Column({
         type    : "enum",
