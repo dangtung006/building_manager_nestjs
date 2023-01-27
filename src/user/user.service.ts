@@ -35,6 +35,16 @@ export class UserService {
         return plainToInstance(UserDto, user, {excludeExtraneousValues : true});
     }
 
+    async getByEmail(email : string) : Promise<UserDto>{
+        const user = await this.userRepository.findOne({
+            where : {
+                email : email as any
+            }
+        })
+        console.log('user : ', user);
+        return plainToInstance(UserDto, user, {excludeExtraneousValues : true});
+    }
+
     async deleteById(id: string):Promise<{ result : number}>{
         await this.userRepository.delete(id);
         return { result : 1};

@@ -1,13 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import {UserService } from '../user/user.service';
 
-
-// @Injectable()
+@Injectable()
 export class AuthService {
     constructor(
-        
+        @Inject('USER_SERVICE') private readonly userService : UserService
     ){}
 
-    validateUser(username : string, password : string){
-        
+    async validateUser(username : string, password : string){
+        const user = await this.userService.getByEmail(username);
+        if(user && user.password == password){
+            return user;
+        }
+        return null;
     }
 }
