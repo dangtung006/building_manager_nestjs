@@ -1,20 +1,21 @@
 
 POST http://localhost:3000/user/create
 Content-Type: application/json
+x-access-token: '123'
 
 {
     "firstName"  : "Dang",
-    "lastName"  : "Loan"
+    "lastName"  : "Dung"
 }
 
 ###
-PUT http://localhost:3000/user/update/885c973c-d382-4da5-b860-6852de0717a2
+PUT http://localhost:3000/user/update/a10b8aed-71c1-4e41-b3b1-38d16eb03de9
 Content-Type: application/json
 x-access-token: '123'
 
 {
     "firstName"  : "Dang",
-    "lastName"  : "Tien"
+    "lastName"  : "Tuab"
 }
 ###
 GET http://localhost:3000/useremail=minhhieu006@gmail.com&password=123456

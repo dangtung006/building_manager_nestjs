@@ -13,6 +13,7 @@ export class UserController {
 
     @Post("create")
     save(@Body() user : UserDto) : Promise<UserDto> {
+        console.log(typeof user);
         let newUser = this.userService.save(user);
         return newUser;
     }
@@ -21,12 +22,11 @@ export class UserController {
     update(@Param('id') id : string, @Body() user : UserDto):Promise<{result : number}>{
         return this.userService.updateById(id, user);
     }
-    
+
     @UseFilters(HttpExceptionFilter)
     @Get(':id')
     getDetail(@Param('id') id : string):Promise<UserDto>{
         let user = this.userService.getById(id);
-        console.log("user : " , user);
         return user;
     }
 

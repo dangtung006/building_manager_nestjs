@@ -8,6 +8,7 @@ export enum roleCode {
 @Entity({
     name : 'user'
 })
+
 export class UserEnity extends BaseEntity {
     
     @Column({
@@ -19,6 +20,18 @@ export class UserEnity extends BaseEntity {
         length : 50
     })
     lastName : string
+
+    @Column({
+        nullable : true,
+        default : ''
+    })
+    email : string
+
+    @Column({
+        nullable : true,
+        default : ''
+    })
+    password : string
 
     @Column({ default: true })
     isActive  : boolean

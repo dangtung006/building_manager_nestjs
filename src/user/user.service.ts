@@ -18,8 +18,10 @@ export class UserService {
     }
 
     async updateById(id: string, userDto : UserDto):Promise<{ result : number}> {
-        await this.userRepository.update(id , userDto);
-        return { result : 1};
+        const r = await this.userRepository.update(id , userDto);
+        if(r.affected == 1) 
+            return { result : 1};
+        return { result : 0};
     }
 
     async getById(id: string): Promise<UserDto>{
