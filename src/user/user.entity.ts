@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity } from "typeorm";
 import { BaseEntity } from "./../common/mysql/base.entity";
 export enum roleCode {
     ADMIN = 'admin',

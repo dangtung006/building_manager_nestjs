@@ -4,16 +4,17 @@ Content-Type: application/json
 
 {
     "firstName"  : "Dang",
-    "lastName"  : "Hoang"
+    "lastName"  : "Loan"
 }
 
 ###
 PUT http://localhost:3000/user/update/885c973c-d382-4da5-b860-6852de0717a2
 Content-Type: application/json
+x-access-token: '123'
 
 {
     "firstName"  : "Dang",
-    "lastName"  : "Minh"
+    "lastName"  : "Tien"
 }
 ###
 GET http://localhost:3000/useremail=minhhieu006@gmail.com&password=123456
