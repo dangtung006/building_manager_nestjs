@@ -4,6 +4,7 @@ import { UserEnity } from './user.entity';
 import { Repository } from 'typeorm';
 import { UserDto } from './user.dto';
 import { plainToInstance } from 'class-transformer';
+import { encodePassword } from '../common/brypt';
 
 
 @Injectable()
@@ -13,7 +14,9 @@ export class UserService {
     ){}
 
     async save(userDto : UserDto):Promise<UserDto> {
-        const newUser =  await this.userRepository.save(userDto);
+        const password = encodePassword(userDto.password);
+        console.log("password : " , password);
+        const newUser =  await this.userRepository.save({ ...userDto , password});
         return plainToInstance(UserDto, newUser, {excludeExtraneousValues : true});
     }
 
