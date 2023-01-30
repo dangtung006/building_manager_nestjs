@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
-
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -19,8 +19,13 @@ import { AuthModule } from './auth/auth.module';
         synchronize: true,
         autoLoadEntities: true
     }),
+
     AuthModule,
-    UserModule
+    UserModule,
+    
+    PassportModule.register({
+      session : true
+    })
   ],
   controllers: [AppController],
   providers: [AppService],
