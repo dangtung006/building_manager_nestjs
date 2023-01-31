@@ -5,8 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PassportModule } from '@nestjs/passport';
-import { SessionEntity } from './auth/session.entity';
-import { UserEnity } from './user/user.entity';
+import { ThrottlerModule , ThrottlerGuard } from '@nestjs/throttler';
 
 
 @Module({
@@ -23,6 +22,11 @@ import { UserEnity } from './user/user.entity';
         autoLoadEntities: true
     }),
 
+    ThrottlerModule.forRoot({
+        ttl : 10,
+        limit : 2
+    }),
+
     AuthModule,
     UserModule,
     
@@ -31,6 +35,12 @@ import { UserEnity } from './user/user.entity';
     })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+        provide : 'APP_GUARD',
+        useClass : ThrottlerGuard
+    }
+],
 })
 export class AppModule {}
