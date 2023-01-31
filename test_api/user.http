@@ -45,3 +45,6 @@ Content-Type: application/json
     "email"     : "dangdung@gmail.com",
     "password"  : "123456"
 }
+
+###
+GET http://localhost:3000/auth/logout

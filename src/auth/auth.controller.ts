@@ -22,4 +22,22 @@ export class AuthController {
     async getAuthStatus(@Request() req){
         return req.user;
     }
+
+    @Get('logout')
+    async logout(@Request() req) {
+
+        const logoutError = await new Promise((resolve) =>
+            req.logOut({ keepSessionInfo: false }, (error) =>
+                resolve(error),
+            ),
+        );
+      
+        if (logoutError) {
+            console.error(logoutError);
+        }
+      
+        return {
+          logout: true,
+        };
+      }
 }

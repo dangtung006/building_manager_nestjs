@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PassportModule } from '@nestjs/passport';
+import { SessionEntity } from './auth/session.entity';
+import { UserEnity } from './user/user.entity';
+
 
 @Module({
   imports: [

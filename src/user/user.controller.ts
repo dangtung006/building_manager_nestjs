@@ -10,7 +10,7 @@ export class UserController {
     constructor(
         private readonly userService : UserService
     ){}
-    
+
     @UseGuards(AuthenticatedGuard)
     @Get('test')
     getTestUser(){
@@ -19,7 +19,6 @@ export class UserController {
 
     @Post("create")
     save(@Body() user : UserDto) : Promise<UserDto> {
-        console.log(typeof user);
         let newUser = this.userService.save(user);
         return newUser;
     }
