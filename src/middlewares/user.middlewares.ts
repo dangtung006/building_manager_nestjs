@@ -4,7 +4,6 @@ import { NextFunction, Request, Response } from "express";
 @Injectable()
 export class UserMiddlewares implements NestMiddleware {
     use(req : Request, res : Response, next : NextFunction){
-        console.log("aaaaaaaaaaaaaaaaaa");
         let token  = req.headers['x-access-token'];
 
         if(!token) 

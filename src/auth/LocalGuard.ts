@@ -16,7 +16,7 @@ export class LocalAuthGuard extends AuthGuard('local') {
 @Injectable()
 export class AuthenticatedGuard implements CanActivate {
     canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean>{
-        const request = context.switchToHttp().getRequest<Request>();
-        return request.isAuthenticated();
+        const req = context.switchToHttp().getRequest();
+        return req.isAuthenticated()
     }
 }

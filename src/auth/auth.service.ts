@@ -8,16 +8,15 @@ export class AuthService {
         @Inject('USER_SERVICE') private readonly userService : UserService
     ){}
 
-    async validateUser(username : string, password : string){
-        const user = await this.userService.getByEmail(username);
-
+    async validateUser(email : string, password : string){
+        const user = await this.userService.getByEmail(email);
         if(user){
             if(comparePassword(password , user.password)) {
                 return user;
             }
             return null;
         }
-        
+
         return null;
     }
 }

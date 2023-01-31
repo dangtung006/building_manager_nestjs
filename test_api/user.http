@@ -5,7 +5,9 @@ x-access-token: '123'
 
 {
     "firstName"  : "Dang",
-    "lastName"  : "Dung"
+    "lastName"  : "Dung",
+    "email"    : "dangdung@gmail.com",
+    "password" : "123456"
 }
 
 ###
@@ -25,3 +27,21 @@ GET http://localhost:3000/user/885c973c-d382-4da5-b860-6852de0717a2
 
 ###
 DELETE  http://localhost:3000/user/885c973c-d382-4da5-b860-6852de0717a2
+
+###
+GET http://localhost:3000/user/test
+x-access-token: '123'
+
+
+###
+GET http://localhost:3000/auth/test
+x-access-token: '123'
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email"     : "dangdung@gmail.com",
+    "password"  : "123456"
+}

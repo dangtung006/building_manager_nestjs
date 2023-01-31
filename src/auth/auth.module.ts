@@ -7,9 +7,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LocalStrategy } from './LocalStrategy';
 import { SessionSerializer } from '../auth/SessionSerialize';
 
-
-
-
 @Module({
     imports: [
         TypeOrmModule.forFeature([UserEnity])

@@ -27,25 +27,25 @@ export class UserService {
         return { result : 0};
     }
 
-    async getById(id: string): Promise<UserDto>{
+    async getById(id: string): Promise<any>{
         // const user = await this.userRepository.findOneById(id);
         const user = await this.userRepository.findOne({
             where : {
                 id : id as any
             }
         });
-        console.log('user : ', user);
+        return user;
         return plainToInstance(UserDto, user, {excludeExtraneousValues : true});
     }
 
-    async getByEmail(email : string) : Promise<UserDto>{
+    async getByEmail(email : string) : Promise<any>{
         const user = await this.userRepository.findOne({
             where : {
                 email : email as any
             }
         })
-        console.log('user : ', user);
-        return plainToInstance(UserDto, user, {excludeExtraneousValues : true});
+        return user;
+        // return plainToInstance(UserDto, user, {excludeExtraneousValues : true});
     }
 
     async deleteById(id: string):Promise<{ result : number}>{
